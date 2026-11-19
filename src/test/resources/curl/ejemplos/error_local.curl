@@ -1,0 +1,2 @@
+# Ejemplo que responde 500 (el servidor local devuelve error en /error).
+curl -sS '${MOCK_URL}/error/transacciones' -H 'Accept: application/json'

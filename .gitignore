@@ -1,0 +1,21 @@
+# Maven
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Secretos y configuracion local (el .env.example SI se sube, sin secretos)
+.env
+.env.*
+!.env.example
+Key/
+
+# Archivos reales del banco: NUNCA se suben al repo.
+# Solo se versionan los archivos simulados de testData.
+RESDWI*.TXT
+RESDWI*.txt
+!src/test/resources/testData/resdwi/RESDWI_*.TXT
+*.ctl
+Informe_Auditoria_*.xlsx

@@ -1,0 +1,12 @@
+# Ejemplo usado por la regresion (CurlLocal.feature). Va contra el servidor local de pruebas.
+# ${MOCK_URL} y ${API_KEY_PRUEBA} los fija la prueba; ${UUID}, ${CONTADOR} y ${FECHA} son automaticas.
+curl --location --request POST '${MOCK_URL}/transacciones' \
+  --header 'Content-Type: application/json' \
+  --header 'X-RqUID: ${UUID}' \
+  --header 'x-api-key: ${API_KEY_PRUEBA}' \
+  --data-raw '{
+    "secuencia": "${CONTADOR}",
+    "fecha": "${FECHA}",
+    "rqUID": "${UUID}",
+    "descripcion": "Pago señal ñandú"
+  }'

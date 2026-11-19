@@ -1,0 +1,6 @@
+# Ejemplo de curl firmado con AWS SigV4 (como API Gateway con autorizacion IAM).
+# Las llaves salen del .env: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN.
+curl -X POST "${MOCK_URL}/dev/transacciones?canal=REST" \
+  --aws-sigv4 "aws:amz:us-east-1:execute-api" \
+  -H "Content-Type: application/json" \
+  -d @cuerpo_transaccion.json

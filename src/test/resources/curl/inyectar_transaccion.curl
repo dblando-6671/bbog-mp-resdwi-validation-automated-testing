@@ -1,0 +1,19 @@
+# ===========================================================================================
+# PLANTILLA: reemplace este curl por el curl real con el que inyecta las transacciones CICS TS.
+# Puede pegarlo tal como lo copia de Postman (Code > cURL) o de Chrome (Copy as cURL (bash)).
+#
+# Cambie los valores fijos y secretos por variables del .env:  ${NOMBRE}  o  {{NOMBRE}}
+#   - URL base, API key, tokens  -> ${BASE_URL}, ${API_KEY}, ...
+#   - Valores que deben cambiar en cada envio -> ${UUID}, ${CONTADOR}, ${FECHA}, ${HORA}, ${TIMESTAMP}
+# Si el API usa autorizacion IAM, deje la linea --aws-sigv4 y las llaves se toman del .env.
+# Un cuerpo largo puede ir en un archivo aparte:  --data @cuerpos/transaccion.json
+# ===========================================================================================
+curl --location --request POST '${BASE_URL}/transacciones' \
+  --header 'Content-Type: application/json' \
+  --header 'X-RqUID: ${UUID}' \
+  --header 'x-api-key: ${API_KEY}' \
+  --data-raw '{
+    "subFuente": "337",
+    "secuencia": "${FECHA}${HORA}${CONTADOR}",
+    "valor": "10000"
+  }'
